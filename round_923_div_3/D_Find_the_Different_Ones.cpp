@@ -9,7 +9,7 @@ int main()
     {
         int n;
         cin >> n;
-        int a[n], b[n];
+        int a[n], b[n + 1];
         for (int i = 0; i < n; i++)
             cin >> a[i];
         b[n - 1] = n;
@@ -19,6 +19,9 @@ int main()
             if (a[i] == a[i + 1])
                 b[i] = b[i + 1];
         }
+        for (int i = 0; i < n; i++)
+            cout << b[i] << " ";
+        cout << endl;
 
         int q;
         cin >> q;
@@ -26,7 +29,8 @@ int main()
         {
             int l, r;
             cin >> l >> r;
-            if (b[l - 1] > r - 1)
+
+            if (b[l - 1] >= r)
                 cout << -1 << " " << -1 << endl;
             else
                 cout << l << " " << b[l - 1] + 1 << endl;
